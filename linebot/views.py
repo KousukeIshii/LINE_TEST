@@ -10,7 +10,7 @@ HEADER = {
 # Create your views here.
 def index(request):
     return HttpResponse("This is bot api.")
-    
+
 def callback(request):
     reply = ""
     request_json = json.loads(request.body.decode('utf-8'))
@@ -20,9 +20,9 @@ def callback(request):
         if message_type == 'text':
             reply = {
             	"replyToken":reply_token
-            	"message":[
+            	"messages":[
             		{
-            			"type":"text"
+            			"type":"text",
             			"text":events['message']['text']
             		}
             	]
